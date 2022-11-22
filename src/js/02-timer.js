@@ -35,11 +35,10 @@ function onInputData(data) {
   //   inputDates = selectedDates[0];
   if (data >= Date.now()) {
     refs.startBtn.removeAttribute('disabled');
-    refs.startBtn.classList.add('js-btn-activ');
   } else {
     Notify.failure('Please choose a date in the future', {
       position: 'center-top',
-      fontSize: '30px',
+      fontSize: '20px',
       width: '500px',
       cssAnimationStyle: 'from-top',
     });
@@ -48,7 +47,6 @@ function onInputData(data) {
 
 function onClickStartButton() {
   refs.startBtn.setAttribute('disabled', true);
-  refs.startBtn.classList.remove('js-btn-activ');
 
   const timerId = setInterval(() => {
     const timeDifference = inputDates - Date.now();
@@ -62,7 +60,7 @@ function onClickStartButton() {
       clearInterval(timerId);
       Notify.success(`${inputDates} is now`, {
         position: 'center-top',
-        fontSize: '30px',
+        fontSize: '20px',
         width: '500px',
         cssAnimationStyle: 'from-top',
       });
